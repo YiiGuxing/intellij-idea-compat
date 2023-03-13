@@ -9,18 +9,6 @@ plugins {
     id("org.jetbrains.intellij") version "1.13.2"
 }
 
-group = "cn.yiiguxing.intellij.compat"
-version = "0.0.1"
-
-// Configure project's dependencies
-repositories {
-    mavenLocal()
-    maven(url = "https://maven.aliyun.com/repository/public")
-    maven(url = "https://maven-central.storage-download.googleapis.com/repos/central/data/")
-    maven(url = "https://www.jetbrains.com/intellij-repository/releases")
-    mavenCentral()
-}
-
 dependencies {
     api(project(":common"))
 }
