@@ -7,7 +7,9 @@ import com.intellij.lang.documentation.ide.DocumentationBrowserFacade
 import com.intellij.lang.documentation.ide.actions.DOCUMENTATION_BROWSER
 import com.intellij.openapi.actionSystem.DataContext
 import com.intellij.psi.PsiElement
+import org.jetbrains.annotations.ApiStatus
 
+@ApiStatus.AvailableSince("213")
 class DocumentationBrowserCompat213 private constructor(private val facade: DocumentationBrowserFacade) :
     DocumentationBrowserCompat {
 
@@ -19,6 +21,7 @@ class DocumentationBrowserCompat213 private constructor(private val facade: Docu
         facade.reload()
     }
 
+    @ApiStatus.AvailableSince("213")
     companion object {
         fun get(context: DataContext): DocumentationBrowserCompat? {
             return context.getData(DOCUMENTATION_BROWSER)

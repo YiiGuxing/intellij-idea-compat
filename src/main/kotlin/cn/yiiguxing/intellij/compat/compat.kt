@@ -4,11 +4,14 @@ import cn.yiiguxing.intellij.compat.internal.DocumentationBrowserCompat213
 import cn.yiiguxing.intellij.compat.internal.DocumentationBrowserCompat231
 import com.intellij.openapi.actionSystem.DataContext
 import com.intellij.openapi.application.ApplicationInfo
+import org.jetbrains.annotations.ApiStatus.AvailableSince
 
+@AvailableSince("213")
 fun DocumentationBrowserCompat.Companion.get(context: DataContext): DocumentationBrowserCompat? {
-    return if (ApplicationInfo.getInstance().build.baselineVersion >= 231) {
-        DocumentationBrowserCompat231.get(context)
-    } else {
-        DocumentationBrowserCompat213.get(context)
+    val version = ApplicationInfo.getInstance().build.baselineVersion
+    return when {
+        version >= 231 -> DocumentationBrowserCompat231.get(context)
+        version >= 213 -> DocumentationBrowserCompat213.get(context)
+        else -> throw IllegalStateException("Unsupported IDE version: $version")
     }
 }
