@@ -1,7 +1,7 @@
-package cn.yiiguxing.plugin.translate.compat
+package cn.yiiguxing.intellij.compat
 
-import cn.yiiguxing.plugin.translate.compat.internal.DocumentationBrowserCompat213
-import cn.yiiguxing.plugin.translate.compat.internal.DocumentationBrowserCompat231
+import cn.yiiguxing.intellij.compat.internal.DocumentationBrowserCompat213
+import cn.yiiguxing.intellij.compat.internal.DocumentationBrowserCompat231
 import com.intellij.openapi.actionSystem.DataContext
 import com.intellij.openapi.application.ApplicationInfo
 

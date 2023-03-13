@@ -1,6 +1,6 @@
 @file:Suppress("unused")
 
-package cn.yiiguxing.plugin.translate.compat.action
+package cn.yiiguxing.intellij.compat.action
 
 import com.intellij.openapi.actionSystem.ActionUpdateThread
 import com.intellij.openapi.actionSystem.AnAction

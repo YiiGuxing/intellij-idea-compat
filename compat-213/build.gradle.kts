@@ -9,7 +9,7 @@ plugins {
     id("org.jetbrains.intellij") version "1.13.2"
 }
 
-group = "cn.yiiguxing.plugin.translate.compat"
+group = "cn.yiiguxing.intellij.compat"
 version = "0.0.1"
 
 // Configure project's dependencies

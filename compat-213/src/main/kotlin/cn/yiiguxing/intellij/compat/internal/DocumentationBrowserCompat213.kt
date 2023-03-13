@@ -1,14 +1,14 @@
 @file:Suppress("UnstableApiUsage")
 
-package cn.yiiguxing.plugin.translate.compat.internal
+package cn.yiiguxing.intellij.compat.internal
 
-import cn.yiiguxing.plugin.translate.compat.DocumentationBrowserCompat
+import cn.yiiguxing.intellij.compat.DocumentationBrowserCompat
+import com.intellij.lang.documentation.ide.DocumentationBrowserFacade
+import com.intellij.lang.documentation.ide.actions.DOCUMENTATION_BROWSER
 import com.intellij.openapi.actionSystem.DataContext
-import com.intellij.platform.ide.documentation.DOCUMENTATION_BROWSER
-import com.intellij.platform.ide.documentation.DocumentationBrowserFacade
 import com.intellij.psi.PsiElement
 
-internal class DocumentationBrowserCompat231 private constructor(private val facade: DocumentationBrowserFacade) :
+class DocumentationBrowserCompat213 private constructor(private val facade: DocumentationBrowserFacade) :
     DocumentationBrowserCompat {
 
     override val targetElement: PsiElement?
@@ -22,7 +22,7 @@ internal class DocumentationBrowserCompat231 private constructor(private val fac
     companion object {
         fun get(context: DataContext): DocumentationBrowserCompat? {
             return context.getData(DOCUMENTATION_BROWSER)
-                ?.let { DocumentationBrowserCompat231(it) }
+                ?.let { DocumentationBrowserCompat213(it) }
         }
     }
 }

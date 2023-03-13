@@ -1,4 +1,4 @@
-package cn.yiiguxing.plugin.translate.compat
+package cn.yiiguxing.intellij.compat
 
 import com.intellij.psi.PsiElement
 
