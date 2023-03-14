@@ -2,6 +2,7 @@ fun properties(key: String) = providers.gradleProperty(key)
 
 plugins {
     id("java-library")
+    id("maven-publish")
 }
 
 allprojects {
@@ -23,8 +24,17 @@ dependencies {
 }
 
 java {
+    withSourcesJar()
     sourceCompatibility = JavaVersion.VERSION_17
     targetCompatibility = JavaVersion.VERSION_11
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            from(components["java"])
+        }
+    }
 }
 
 tasks {
@@ -32,6 +42,16 @@ tasks {
         from(zipTree(project(":common").tasks.jar.get().archiveFile.get()))
         from(zipTree(project(":compat").tasks.jar.get().archiveFile.get()))
         from(zipTree(project(":compat-213").tasks.jar.get().archiveFile.get()))
+    }
+    named<Jar>("sourcesJar") {
+        from(project(":common").sourceSets.main.get().allSource)
+        from(project(":compat").sourceSets.main.get().allSource)
+        from(project(":compat-213").sourceSets.main.get().allSource)
+    }
+
+    wrapper {
+        gradleVersion = properties("gradleVersion").get()
+        distributionType = Wrapper.DistributionType.ALL
     }
 }
 

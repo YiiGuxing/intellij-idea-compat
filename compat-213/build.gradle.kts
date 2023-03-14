@@ -19,6 +19,7 @@ kotlin {
 }
 
 java {
+    withSourcesJar()
     targetCompatibility = JavaVersion.VERSION_11
 }
 
