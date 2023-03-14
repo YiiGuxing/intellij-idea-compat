@@ -19,8 +19,8 @@ allprojects {
 }
 
 dependencies {
-    api(project(":common"))
-    api(project(":compat"))
+    implementation(project(":common"))
+    implementation(project(":compat"))
 }
 
 java {
@@ -31,8 +31,30 @@ java {
 
 publishing {
     publications {
-        create<MavenPublication>("maven") {
+        create<MavenPublication>("IntellijCompat") {
+            group = "com.github.YiiGuxing"
             from(components["java"])
+
+            pom {
+                name.set("IntelliJ IDEA Compat")
+                description.set("IntelliJ IDEA plugin development compatibility support library")
+                url.set("https://github.com/YiiGuxing/intellij-idea-compat")
+                developers {
+                    developer {
+                        id.set("yiiguxing")
+                        name.set("Yii.Guxing")
+                        email.set("yii.guxing@outlook.com")
+                    }
+                }
+                withXml {
+                    (asNode()["dependencies"] as groovy.util.NodeList).forEach { dependencies ->
+                        dependencies as groovy.util.Node
+                        dependencies.children().reversed().forEach {
+                            dependencies.remove(it as groovy.util.Node)
+                        }
+                    }
+                }
+            }
         }
     }
 }
