@@ -71,6 +71,10 @@ tasks {
         from(project(":compat-213").sourceSets.main.get().allSource)
     }
 
+    withType<GenerateModuleMetadata> {
+        enabled = false
+    }
+
     wrapper {
         gradleVersion = properties("gradleVersion").get()
         distributionType = Wrapper.DistributionType.ALL
