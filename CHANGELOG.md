@@ -4,5 +4,7 @@
 
 ### Added
 
+- `UpdateInBackgroundCompat`
 - `UpdateInBackgroundCompatAction`
+- `UpdateInBackgroundCompatToggleAction`
 - `DocumentationBrowserCompat`
