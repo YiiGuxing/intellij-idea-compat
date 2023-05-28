@@ -8,3 +8,10 @@
 - `UpdateInBackgroundCompatAction`
 - `UpdateInBackgroundCompatToggleAction`
 - `DocumentationBrowserCompat`
+
+
+## v0.0.2
+
+### Added
+
+- `UpdateInBackgroundCompatComboBoxAction`
