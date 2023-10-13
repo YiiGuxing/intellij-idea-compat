@@ -2,6 +2,7 @@ package cn.yiiguxing.intellij.compat
 
 import cn.yiiguxing.intellij.compat.internal.DocumentationBrowserCompat213
 import cn.yiiguxing.intellij.compat.internal.DocumentationBrowserCompat231
+import cn.yiiguxing.intellij.compat.internal.DocumentationRenderingCompatImpl
 import com.intellij.openapi.actionSystem.DataContext
 import com.intellij.openapi.application.ApplicationInfo
 import org.jetbrains.annotations.ApiStatus.AvailableSince
@@ -14,4 +15,8 @@ fun DocumentationBrowserCompat.Companion.get(context: DataContext): Documentatio
         version >= 213 -> DocumentationBrowserCompat213.get(context)
         else -> throw IllegalStateException("Unsupported IDE version: $version")
     }
+}
+
+fun DocumentationRenderingCompat.Companion.instance(): DocumentationRenderingCompat {
+    return DocumentationRenderingCompatImpl()
 }
